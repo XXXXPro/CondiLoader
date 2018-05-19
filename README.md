@@ -42,7 +42,8 @@ Each item object in items array can contain following properties:
  *   init - function to call after all CSS and JavaScript files of item are loaded
  *   event - name of event to fire after CSS and JavaScript files of item are loaded. This is useful for inline JavaScript code which depends on externals scripts. Just convert it to custom event listener. 
  *   name - name of item block (useful for debugging messages)
- * All parameters are not mandatory.
+
+All parameters are not mandatory.
 If both sel and xpath specified, block will be processed when both sel AND xpath elements found.
 If neither sel nor xpath specified, item will be processed always, without any condition checking.
 All items are processed in parallel. If it is unable to load JS or CSS, init function call and event firing are skipped and error message output to console.
