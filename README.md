@@ -7,7 +7,7 @@ If it does, then script loads specified CSS ana JavaScript, calls init function 
 This allows to list all your JavaScripts and CSS of the site in one place, but load only those, which current page really needs.
 
 #### Usage:
-There are two ways to use script. The first is to add 
+There are two ways to use script. The first is to add following code to your HTML:
 ```HTML
 <script>
 function CondiLoaderInit() {
@@ -27,7 +27,7 @@ function CondiLoaderInit() {
 <script src="condi_loader.js" onload="CondiLoaderInit()" defer="defer"></script>
 ```
 
-or move the contens of CondiLoaderInit function to separate file (e.g. condi_loader_init.js):
+The second is to move the contens of CondiLoaderInit function to separate file (e.g. condi_loader_init.js):
 ```HTML
 <script src="condi_loader.js" defer="defer"></script>
 <script src="condi_loader_init.js" defer="defer"></script>
