@@ -13,7 +13,14 @@ There are two ways to use script. The first is to add
 function CondiLoaderInit() {
   new CondiLoader([
 // item1,
-// item2
+// item2, e.g.:
+{ sel: ".carousel", // if element with class carousel present on the page, block will be processed
+   js: ["jquery.js","jquery.carousel.js"], // loading jQuery and jQuery carousel plugin
+   css: "carousel.css",  // loading styles for carousel
+   init: ()=>jQuery('.carousel').carousel(), // init function, which will be called after all files are loaded
+   event: "CarouselLoaded", // event to be triggered after all files will be loaded
+   name: "Carousel block" // human-readable name of the block to make debugging easier
+}
   ],{ /* options */ });
 }
 </script>
