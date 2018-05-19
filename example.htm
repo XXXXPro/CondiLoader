@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Testing CondiLoader</title>
+<div class="block1">Block1</div>
+<div class="block2">Block2</div>
+<div class="block3">Block3</div>
+<div class="block4">Block4</div>
+<div class="block5">Block5</div>
+
+<div><input type="text" class="calendar"></div>
+<div><textarea class="bbcode"></textarea></div>
+<script>
+function CondiLoaderInit() {
+  new CondiLoader([
+    { js: ["js2.js","js3.js"], css: ["style2.css","style3.css"], init: function() { JS3_init(); } }, // this block will be always processed
+    { sel: [".block1",".block5"], css: "style1.css", init: function () { console.log('Block 1 init function'); }, name : "First block" }, // this block will be processed if there are block1 and block5 on the page
+    { sel: ".block4", js: ["js3.js"], event: "customEvent1" } // this block will be processed if there is block4 on the page and fires custom event
+    { sel: ".block7", js: "js4.js", event: "customEvent3" } // this item will be skipped because of there no block7 on this page
+  ],{skipDoubleLoad:true,baseCSS:'example_data/',baseJS:'example_data/'});
+}
+</script>
+<script>
+// This is example how to convert inline initialization script to custom event listener called by CondiLoader
+document.addEventListener('customEvent1', function (e) {
+  console.log('Block 4 inline initialization function!');
+});
+</script>
+<script src="condi_loader.js" onload="CondiLoaderInit()"></script>
