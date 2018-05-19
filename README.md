@@ -1,5 +1,5 @@
 # CondiLoader
-## Asynchronous conditional javascript and CSS loader
+### Asynchronous conditional javascript and CSS loader
 
 This script is intended to do non-blocking conditional JavaScript and CSS loading on web page.
 It takes array of items and for each item checks, whether element with specified selector or xpath presents on the page.
@@ -8,6 +8,7 @@ This allows to list all your JavaScripts and CSS of the site in one place, but l
 
 #### Usage:
 There are two ways to use script. The first is to add 
+```HTML
 <script>
 function CondiLoaderInit() {
   new CondiLoader([
@@ -17,10 +18,13 @@ function CondiLoaderInit() {
 }
 </script>
 <script src="condi_loader.js" onload="CondiLoaderInit()" defer="defer"></script>
+```
 
 or move the contens of CondiLoaderInit function to separate file (e.g. condi_loader_init.js):
+```HTML
 <script src="condi_loader.js" defer="defer"></script>
-<script src="condi_loader_init.js" onload="CondiLoaderInit()" defer="defer"></script>
+<script src="condi_loader_init.js" defer="defer"></script>
+```
 
 #### Item parameters
 Each item object in items array can contain following properties:
