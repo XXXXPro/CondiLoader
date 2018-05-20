@@ -1,9 +1,9 @@
 /** ===========================================
- * Conditional asyncronous loader script, version 0.90
- *  *
+ * Conditional asyncronous loader script, version 1.00
+ *
  * Written by 4X_Pro (http://4xpro.ru), 2018
  *
- * Distributed under MIT license
+ * Distributed under MIT license: https://github.com/XXXXPro/CondiLoader/blob/master/LICENSE
  *
  * This script is intended to do asynchronous conditional javascript and CSS loading on web page.
  * It takes array of items and for each item checks, whether element with specified selector or xpath presents on the page.
@@ -17,14 +17,15 @@
  *   sel - CSS selector to element. If no elements found, item will not be processed
  *   xpath - xpath expression for element. If no elements found, item will not be processed.
  *   css - CSS file(s) to load. Can be string with single file name or array of file names.
+ *   media - media attribute for CSS tags.
  *   js - JavaScript file(s) to load. Can be string with single file name or array of file names. Files are loaded in order specified.
- *   init - function to call after all CSS and JavaScript files of item are loaded
- *   event - name of event to fire after CSS and JavaScript files of item are loaded
- *   name - name of item block (useful for debugging messages)
+ *   init - function to call after all CSS and JavaScript files of item are loaded.
+ *   event - name of event to fire after CSS and JavaScript files of item are loaded.
+ *   name - name of item block (useful for debugging messages).
  * All parameters are not mandatory.
  * If both sel and xpath specified, block will be processed when both sel AND xpath elements found.
  * If neither sel nor xpath specified, item will be processed always, without any condition checking.
- * All items are processed in parallel. If it is unable to load JS or CSS, init function call and event firing are skipped and error message output to console. *
+ * All items are processed in parallel. If it is unable to load JS or CSS, init function call and event firing are skipped and error message output to console.
  *
  * Supported options:
  *   baseCSS - path to prepend to all relative CSS URLs. Default is empty string.
@@ -122,7 +123,7 @@ try {
         if (self.need_load(item)) {
           var prom = Promise.resolve();
           if (typeof(item.css)==="string") item.css = new Array(item.css);
-          if (item.css!==undefined) for (var i=0; i<item.css.length; i++) prom.then(prom=self.load_css(item.css[i])); // loading CSS
+          if (item.css!==undefined) for (var i=0; i<item.css.length; i++) prom.then(prom=self.load_css(item.css[i],item.media)); // loading CSS
           if (typeof(item.js)==="string") item.js = new Array(item.js);
           if (item.js!==undefined) for (var i=0; i<item.js.length; i++) prom.then(prom=self.load_js(item.js[i])); // loading JS
           if (typeof(item.init)==="function") prom.then(item.init); // calling init function, if everything was loaded correctly

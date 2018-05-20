@@ -1,0 +1,42 @@
+{
+  "name": "condiloader",
+  "version": "1.0.0",
+  "description": "Asynchronous conditional loader library for JavaScript and CSS files",
+  "main": "condi_loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XXXXPro/CondiLoader.git"
+  },
+  "keywords": [
+    "async",
+    "asyncronous",
+    "loader",
+    "conditional",
+    "loader",
+    "css",
+    "loader",
+    "javascript",
+    "loader",
+    "js",
+    "loader",
+    "load",
+    "library"
+  ],
+  "author": { 
+   "name" : "4X_Pro",
+   "email" : "me@4xpro.ru",
+   "url" : "http://4xpro.ru/"
+  },
+ "files": [
+    "*.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XXXXPro/CondiLoader/issues",
+    "email": "me@4xpro.ru"
+  },
+  "homepage": "https://github.com/XXXXPro/CondiLoader#readme"
+}

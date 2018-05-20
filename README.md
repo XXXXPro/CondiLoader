@@ -35,13 +35,14 @@ The second is to move the contens of CondiLoaderInit function to separate file (
 
 #### Item parameters
 Each item object in items array can contain following properties:
- *   sel - CSS selector to element. If no elements found, item will not be processed
- *   xpath - xpath expression for element. If no elements found, item will not be processed.
- *   css - CSS file(s) to load. Can be string with single file name or array of file names.
- *   js - JavaScript file(s) to load. Can be string with single file name or array of file names. Files are loaded in order specified.
- *   init - function to call after all CSS and JavaScript files of item are loaded
- *   event - name of event to fire after CSS and JavaScript files of item are loaded. This is useful for inline JavaScript code which depends on externals scripts. Just convert it to custom event listener. 
- *   name - name of item block (useful for debugging messages)
+ *   sel — CSS selector to element. If no elements found, item will not be processed
+ *   xpath — xpath expression for element. If no elements found, item will not be processed.
+ *   css — CSS file(s) to load. Can be string with single file name or array of file names.
+ *   media — media attribute for CSS tags.
+ *   js — JavaScript file(s) to load. Can be string with single file name or array of file names. Files are loaded in order specified.
+ *   init — function to call after all CSS and JavaScript files of item are loaded
+ *   event — name of event to fire after CSS and JavaScript files of item are loaded. This is useful for inline JavaScript code which depends on externals scripts. Just convert it to custom event listener.
+ *   name — name of item block (useful for debugging messages)
 
 All parameters are not mandatory.
 If both sel and xpath specified, block will be processed when both sel AND xpath elements found.
@@ -49,11 +50,11 @@ If neither sel nor xpath specified, item will be processed always, without any c
 All items are processed in parallel. If it is unable to load JS or CSS, init function call and event firing are skipped and error message output to console.
 
 #### Supported options:
- *   baseCSS - path to prepend to all relative CSS URLs. Default is empty string.
- *   baseJS - path to prepend to all relative JavaScript URLs. Default is empty string.
- *   skipDoubleLoad - when true, CondiLoader checks if script with same URL is loading by other item and will not load same script twice. Default is true.
- 
+ *   baseCSS — path to prepend to all relative CSS URLs. Default is empty string.
+ *   baseJS — path to prepend to all relative JavaScript URLs. Default is empty string.
+ *   skipDoubleLoad — when true, CondiLoader checks if script with same URL is loading by other item and will not load same script twice. Default is true.
+
 For working example see example.htm file.
- 
+
 You can create as many CondiLoader instances as you need, but keep in mind that JavaScript double loading check works only within same instance.
- 
+
